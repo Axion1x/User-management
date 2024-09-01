@@ -1,0 +1,57 @@
+.searchContainer{
+    display: flex;
+    min-width:1200px;
+    margin:40px 0;
+    flex-direction: row;
+    justify-content: center;
+
+}
+
+.search{
+    font-size: 20px;
+    font-weight: 600;
+    margin-right: 15px;
+    background-color: #eeeeeee5;
+    border-radius: 50px;
+    width: calc((1200px - (20px * 4) - 130px)/4);
+    padding: 10px 10px;
+    color: #32265e;
+    box-shadow: 10px 10px 15px rgba(0, 0, 0, 1), 
+                0 0 15px rgba(255, 255, 255, 0.5);
+    outline:none;
+    transition: box-shadow 0.3s ease, transform 0.2s ease; /* Smooth transition */
+  }
+  .search:active {
+    box-shadow: 10px 10px 15px rgba(0, 0, 0, 1), 
+                0 0 15px rgba(255, 255, 255, 0.5);
+    transform: translateY(2px); 
+  }
+  
+  .search:focus {
+    outline: none; 
+  }
+
+  .button{
+        font-size: 30px;
+        font-weight: 800;
+        margin-right: 15px;
+        background-color: #eeeeeee5;
+        border-radius: 50px;
+        width: 55px;
+        cursor: pointer;
+        padding: 5px 5px;
+        color: #32265e;
+        box-shadow: 10px 10px 15px rgba(0, 0, 0, 1), 
+                    0 0 15px rgba(255, 255, 255, 0.5);
+        outline:none;
+        transition: box-shadow 0.3s ease, transform 0.2s ease; /* Smooth transition */
+      }
+      .button:active {
+        box-shadow: 10px 10px 15px rgba(0, 0, 0, 1), 
+                    0 0 15px rgba(255, 255, 255, 0.5);
+        transform: translateY(2px); 
+      }
+      
+      .button:focus {
+        outline: none; 
+      }

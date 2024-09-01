@@ -14,7 +14,6 @@
 }
 
 .App-header {
-  background-color: #282c34;
   min-height: 100vh;
   display: flex;
   flex-direction: column;
@@ -23,9 +22,14 @@
   font-size: calc(10px + 2vmin);
   color: white;
 }
+body{
+  background-color: #425368;
+}
 
-.App-link {
-  color: #61dafb;
+ul{
+  list-style: none;
+  margin:0;
+  padding: 0;
 }
 
 @keyframes App-logo-spin {
@@ -35,4 +39,58 @@
   to {
     transform: rotate(360deg);
   }
+}
+.header{
+  font-size: 36px;
+  font-weight: 800;
+  letter-spacing: 5px;
+  width: 1200px;
+  margin: 30px auto;
+  background-color: #eeeeeee5;
+  border-radius: 50px;
+  position: relative;
+  padding: 10px 0;
+  margin-bottom: 30px;
+  color: #32265e;
+  box-shadow: 15px 15px 30px rgba(0, 0, 0, 1), 
+              -5px -5px 15px rgba(255, 255, 255, 0.5);
+}
+.header::before {
+  content: '';
+  position: absolute;
+  left: 15px;
+  top: 18px;
+  height: 30px; 
+  width: 30px;  
+  border: 1px solid #425368; 
+  border-radius: 50%;
+  background: #425368; 
+  box-shadow: 
+    0 0 5px rgba(0, 0, 0, 1), 
+    inset 5px 5px 15px rgba(0, 0, 0, 0.5);
+}
+.header::after{
+  content: '';
+  position: absolute;
+  right: 15px;
+  top: 18px;
+  height: 30px; 
+  width: 30px;  
+  border: 1px solid #425368; 
+  border-radius: 50%;
+  background: #425368; 
+  box-shadow: 
+    0 0 5px rgba(0, 0, 0, 1), 
+    inset 5px 5px 15px rgba(0, 0, 0, 0.5);
+}
+.loading-container{
+  height:200px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+.loading-text{
+  font-size: 40px;
+  margin-left: 20px;
+  font-weight: bold;
 }

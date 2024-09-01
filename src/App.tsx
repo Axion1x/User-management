@@ -1,25 +1,51 @@
-import React from 'react';
-import logo from './logo.svg';
+import { useDispatch, useSelector } from 'react-redux';
 import './App.css';
+import { AppDispatch, RootState } from './features/store';
+import { useEffect } from 'react';
+import { fetchUser, setFilters } from './features/slices/userSlice';
+import ReactLoading from 'react-loading'
+import Table from './components/table/Table';
+import Search from './components/search/Search';
 
-function App() {
+const App:React.FC = () => {
+  const dispatch = useDispatch<AppDispatch>();
+
+  const {status, error } = useSelector((state: RootState) =>  ({
+    status:state.users.status,
+    error:state.users.error
+}));
+
+  useEffect (()=>{
+    if (status === 'idle'){
+      dispatch(fetchUser())
+    }
+  }, [dispatch, status])
+  
+  const handleSearch = (filters: { name: string, username: string, email: string, phone: string }) => {
+    dispatch(setFilters(filters));
+  };
+
+  const handleReset = () => {
+    dispatch(setFilters({ name: '', username: '', email: '', phone: '' }));
+  };
+
   return (
     <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.tsx</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
+    {status === 'loading' && (
+      <div className="loading-container">
+        <ReactLoading type={'spokes'} color={'#fff'} />
+        <div className='loading-text'>Loading...</div>
+      </div>
+    )}
+    {status === 'failed' && <p>Error: {error}</p>}
+    {status === 'succeeded' && (
+      <>
+        <div className = 'header'>User Management</div>
+        <Search onReset={handleReset} onSearch={handleSearch} />
+        <Table />
+      </>
+    )}
+  </div>
   );
 }
 
